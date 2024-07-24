@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+      'todo',
+    'rest_framework',  # If you're using Django REST Framework
+    'django_filters',  # For filtering functionality
 ]
 
 MIDDLEWARE = [
