@@ -37,9 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-      'todo',
-    'rest_framework',  # If you're using Django REST Framework
-    'django_filters',  # For filtering functionality
+    'todo.apps.TodoConfig',
 ]
 
 MIDDLEWARE = [
@@ -114,7 +112,7 @@ USE_I18N = True
 
 USE_TZ = True
 
-
+LOGIN_URL= 'login'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
