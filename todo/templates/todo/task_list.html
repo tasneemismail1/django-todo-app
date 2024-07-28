@@ -1,5 +1,16 @@
-<h1>my to do list</h1>
+{% if request.user.is_authenticated %}
+<p>{{request.user}}</p>
+<form id="logout-form" method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">Log Out</button>
+</form>
+{% else %}
+<a href="{% url 'login' %}">LogIn</a>
+{% endif %}
 
+
+
+<hr>
 <a href="{% url 'task-create' %}">add task</a>
 <table>
     <tr>
