@@ -1,0 +1,33 @@
+{% if request.user.is_authenticated %}
+<p>{{request.user}}</p>
+<form id="logout-form" method="POST" action="{% url 'logout' %}">
+    {% csrf_token %}
+    <button type="submit" style="background:none; border:none; color:blue; text-decoration:underline; cursor:pointer;">Log Out</button>
+</form>
+{% else %}
+<a href="{% url 'login' %}">LogIn</a>
+{% endif %}
+
+
+
+<hr>
+<a href="{% url 'task-create' %}">add task</a>
+<table>
+    <tr>
+        <th>Item</th>    
+        <th></th>
+         <th></th> 
+         <th></th>  
+    </tr>
+    {% for task in tasks %}
+    <tr>
+        <td>{{task.title}}</td>    
+        <td><a href="{% url 'task' task.id %}">View</a></td>    
+        <td><a href="{% url 'task-update' task.id %}">Update</a></td>
+        <td><a href="{% url 'task-delete' task.id %}">Delete</a></td>    
+    </tr>
+
+    {% empty %}
+    <h3>No items to show</h3>
+    {% endfor %}
+</table>
