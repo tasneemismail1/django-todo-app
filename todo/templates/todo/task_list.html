@@ -12,6 +12,12 @@
 
 <hr>
 <a href="{% url 'task-create' %}">add task</a>
+
+<form method="GET">
+    <input type="text" name="search-area" placeholder="search" value="{{ search_input }}">
+    <input type="submit" value="Search">
+</form>
+
 <table>
     <tr>
         <th>Item</th>    
